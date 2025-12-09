@@ -296,8 +296,13 @@ namespace JetpackFella_Remastered
                 var rect = _asteroidVisuals[i];
                 rect.Width = a.Rect.Width;
                 rect.Height = a.Rect.Height;
+
                 Canvas.SetLeft(rect, a.Rect.X);
                 Canvas.SetTop(rect, a.Rect.Y);
+
+                // apply rotation
+                rect.RenderTransform = new RotateTransform(a.Rotation, a.Rect.Width / 2, a.Rect.Height / 2);
+
                 rect.Visibility = a.Rect.Width > 0 && a.Rect.Height > 0 ? Visibility.Visible : Visibility.Collapsed;
             }
 
